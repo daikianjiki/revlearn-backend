@@ -14,7 +14,7 @@
     <name>tech-service-ecommerce-project-backend</name>
     <description>Spring and Angular project</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
