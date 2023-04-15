@@ -9,12 +9,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.revature</groupId>
-    <artifactId>tech-service-ecommerce-project-backend</artifactId>
+    <artifactId>revlearn-backend</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>tech-service-ecommerce-project-backend</name>
+    <name>revlearn-backend</name>
     <description>Spring and Angular project</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
