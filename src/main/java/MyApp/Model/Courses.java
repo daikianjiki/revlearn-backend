@@ -1,9 +1,6 @@
 package MyApp.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,16 +9,24 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table
 public class Courses {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long courseId;
+    @Column
     private Long educatorId;
+    @Column
     private String name; // added field as there was no field for the actual name of the course
+    @Column
     private String keywords;
+    @Column
     private String category;
-    private String level;
+    @Column
+    private Integer courseLevel;
+    @Column
     private String description;
+    @Column
     private Double cost;
 
 }
