@@ -20,12 +20,12 @@ CREATE TABLE student (
 
 -- Table for courses
 CREATE TABLE courses (
-  courseId INTEGER PRIMARY KEY,
-  educatorId INTEGER,
+  course_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  educator_id INTEGER,
   name VARCHAR,
   keywords VARCHAR,
   category VARCHAR,
-  courseLevel INTEGER,
+  course_level INTEGER,
   description LONGTEXT,
   cost DOUBLE
 );
