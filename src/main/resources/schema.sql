@@ -1,3 +1,4 @@
+
 CREATE TABLE login (
   login_id INTEGER PRIMARY KEY,
   email VARCHAR,
@@ -19,12 +20,12 @@ CREATE TABLE student (
 
 -- Table for courses
 CREATE TABLE courses (
-  course_id INTEGER PRIMARY KEY,
-  educator_id INTEGER,
+  courseId INTEGER PRIMARY KEY,
+  educatorId INTEGER,
   name VARCHAR,
   keywords VARCHAR,
   category VARCHAR,
-  course_level INTEGER,
+  courseLevel INTEGER,
   description LONGTEXT,
   cost DOUBLE
 );
