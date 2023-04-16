@@ -28,7 +28,6 @@ public class Courses {
     private String description;
     @Column
     private Double cost;
-
 }
 
 /*In satisfying user stories for students to be able to register for a class, interact within a class, get their grades for a class
@@ -40,3 +39,4 @@ Relationships:
 1-to-many -> student < courses
 1-to-many -> educators < courses
 1-to-1 -> course to forum */
+

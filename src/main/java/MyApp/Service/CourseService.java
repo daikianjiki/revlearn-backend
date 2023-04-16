@@ -16,7 +16,8 @@ public class CourseService {
     }
     //returns a list of all courses
     public List<Courses> getAllCourses(){
-       return courseRepo.findAll();
+    return courseRepo.findAll();
+
     }
     //adds a new course to Courses
     public Courses addCourse(Courses course){
@@ -34,5 +35,4 @@ public class CourseService {
     public Courses getCourseById(Long id){
         return courseRepo.findById(id).get();
     }
-
 }
