@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatus;
 import java.util.List;
 
 @RestController
-@RequestMapping("/courses")
+@RequestMapping("/courses/")
 @CrossOrigin(origins="*")
 public class CourseController {
     private final CourseService courseService;
@@ -21,27 +21,27 @@ public class CourseController {
         this.courseService = courseService;
     }
 
-    @GetMapping("/all")
+    @GetMapping("all")
     public ResponseEntity<List<Courses>> getAllCourses() {
         List<Courses> courses = courseService.getAllCourses();
         return new ResponseEntity<>(courses, HttpStatus.OK);
     }
-    @PostMapping("/add")
+    @PostMapping("add")
     public ResponseEntity<Courses> addCourse(@RequestBody Courses course){
         Courses newCourse = courseService.addCourse(course);
         return new ResponseEntity<>(course, HttpStatus.CREATED);
     }
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<?> deleteCourse(@PathVariable("id") Long id){
         courseService.deleteCourse(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-    @PutMapping("/update")
+    @PutMapping("update")
     public ResponseEntity<Courses> updateCourse(@RequestBody Courses course) {
         Courses updatedCourse = courseService.updateCourse(course);
         return new ResponseEntity<>(updatedCourse, HttpStatus.CREATED);
     }
-    @GetMapping("/find/{id}")
+    @GetMapping("find/{id}")
     public ResponseEntity<Courses> getCourseById(@PathVariable("id") Long id){
         Courses course = courseService.getCourseById(id);
         return new ResponseEntity<>(course, HttpStatus.OK);

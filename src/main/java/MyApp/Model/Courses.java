@@ -13,9 +13,9 @@ import lombok.NoArgsConstructor;
 public class Courses {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long courseId;
+    private Long course_id;
     @Column
-    private Long educatorId;
+    private Long educator_id;
     @Column
     private String name; // added field as there was no field for the actual name of the course
     @Column
@@ -23,7 +23,7 @@ public class Courses {
     @Column
     private String category;
     @Column
-    private Integer courseLevel;
+    private Integer course_level;
     @Column
     private String description;
     @Column
