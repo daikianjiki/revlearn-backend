@@ -2,6 +2,8 @@ package MyApp.Model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.http.converter.json.GsonBuilderUtils;
+
 import java.sql.Timestamp;
 
 @Entity
@@ -23,4 +25,5 @@ public class Forum {
     private String textBody;
     @Column
     private Timestamp createdAt;
+
 }
