@@ -21,4 +21,5 @@ public class Quiz {
     public String answer2;
     public String answer3;
     public String answer4;
+    public String answer;
 }
