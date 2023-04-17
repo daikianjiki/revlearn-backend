@@ -46,3 +46,14 @@ CREATE TABLE forum (
   text_body LONGTEXT,
   created_at TIMESTAMP
 );
+
+CREATE TABLE quizzes (
+  quiz_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  quiz_name VARCHAR(100) NOT NULL,
+  question VARCHAR(255) NOT NULL,
+  answer_1 VARCHAR(255) NOT NULL,
+  answer_2 VARCHAR(255) NOT NULL,
+  answer_3 VARCHAR(255) NOT NULL,
+  answer_4 VARCHAR(255) NOT NULL,
+  correct_answer CHAR(1) NOT NULL
+);
