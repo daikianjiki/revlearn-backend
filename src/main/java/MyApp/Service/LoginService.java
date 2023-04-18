@@ -2,6 +2,7 @@ package MyApp.Service;
 
 import MyApp.Exceptions.UnauthorizedUserException;
 import MyApp.Model.Login;
+import MyApp.Model.Student;
 import MyApp.Repository.LoginRepository;
 import MyApp.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,18 @@ public class LoginService {
      * @return
      */
     public Login register(Login login) {
+        if(login.getUser_type().equals("student")){
+            Student student = new Student();
+            student = studentRepository.save(student);
+            login.setStudent(student);
+            return loginRepository.save(login);
+        }
+        else if(login.getUser_type().equals("educator")){
+
+        }
+        else if(login.getUser_type().equals("admin")){
+
+        }
         return loginRepository.save(login);
     }
 
@@ -57,5 +70,17 @@ public class LoginService {
     }
 
 
+    public Login editAccount(Login login, long id) {
+        Login login1 = loginRepository.findById(id).get();
+        login1.setEmail(login.getEmail());
+        login1.setPassword(login.getPassword());
+        login1.setUser_type(login.getUser_type());
+        login1.setStatus(login.getStatus());
 
+
+        if(login.getStudent() != null && login1.getUser_type().equals("student")) {
+            login1.setStudent(login.getStudent());
+        }
+        return loginRepository.save(login1);
+    }
 }

@@ -5,7 +5,7 @@ CREATE TABLE student (
   firstname VARCHAR,
   lastname VARCHAR,
   address VARCHAR,
-  phone_number INTEGER,
+  phone_number VARCHAR,
   dob VARCHAR,
   login_id INTEGER
 );
