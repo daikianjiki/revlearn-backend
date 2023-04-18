@@ -17,15 +17,15 @@ public class Student {
     private Long id;
 
     @Column
-    private String firstname;
+    private String firstname = "temp";
     @Column
-    private String lastname;
+    private String lastname = "temp";
     @Column
-    private String address;
+    private String address = "temp";
     @Column
-    private String phone_number;
+    private String phone_number = "(123)-123-1234";
     @Column
-    private String dob;
+    private String dob = "00/00/0000";
 
 
     @OneToOne(fetch = FetchType.EAGER)
