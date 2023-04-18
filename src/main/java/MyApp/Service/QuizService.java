@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -26,5 +27,10 @@ public class QuizService {
 
     public ResponseEntity<?> createQuiz(Quiz quiz) {
         return new ResponseEntity<>(this.quizRepository.save(quiz), HttpStatus.OK);
+    }
+
+    public List<Quiz> getAllQuizByCourseId(long id) {
+
+        return this.quizRepository.getAllQuizByCourseId(id);
     }
 }
