@@ -47,7 +47,7 @@ public class LoginService {
         Login loginOnDB = loginRepository.findByEmail(login.getEmail());
 
         if(loginOnDB.getPassword().equals(login.getPassword())) {
-            if(loginOnDB.getUser_type().equals("Student")) return loginOnDB.getStudent();
+            if(loginOnDB.getUser_type().equals("student")) return loginOnDB.getStudent();
         }
         else {
             throw new UnauthorizedUserException();
