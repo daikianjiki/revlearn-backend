@@ -1,15 +1,14 @@
 
--- Insert login data
-INSERT INTO login (login_id, email, password, user_type, status) VALUES
-  (1, 'john.doe@example.com', 'password', 'student', 'active'),
-  (2, 'jane.doe@example.com', 'password', 'student', 'active'),
-  (3, 'educator@example.com', 'password', 'educator', 'active');
-
 -- Insert student data
-INSERT INTO student (student_id, login_id, firstname, lastname, address, phone_number, date_of_birth) VALUES
-  (1, 1, 'John', 'Doe', '123 Main St', 5551234, '1998-01-01'),
-  (2, 2, 'Jane', 'Doe', '456 Elm St', 5555678, '1999-02-02');
+INSERT INTO student (id, firstname, lastname, address, phone_number, dob, login_id) VALUES
+  (1, 'John', 'Doe', '123 Main St', 5551234, '1998-01-01', 1),
+  (2, 'Jane', 'Doe', '456 Elm St', 5555678, '1999-02-02', 2);
 
+ -- Insert login data
+ INSERT INTO login (id, email, password, user_type, status, login_id) VALUES
+   (1, 'john.doe@example.com', 'password', 'student', 'active', 1),
+   (2, 'jane.doe@example.com', 'password', 'student', 'active', 2);
+   --(3, 'educator@example.com', 'password', 'educator', 'active');
 
 -- Insert gradebook data
 INSERT INTO gradebook (id, studentid, teacherid, grades) VALUES
