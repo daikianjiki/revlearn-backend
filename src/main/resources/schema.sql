@@ -1,21 +1,22 @@
 
-CREATE TABLE login (
-  login_id INTEGER PRIMARY KEY,
-  email VARCHAR,
-  password VARCHAR,
-  user_type VARCHAR,
-  status VARCHAR
-);
-
 -- Table for student information
 CREATE TABLE student (
-  student_id INTEGER PRIMARY KEY,
-  login_id INTEGER REFERENCES login(login_id),
+  id INTEGER PRIMARY KEY,
   firstname VARCHAR,
   lastname VARCHAR,
   address VARCHAR,
   phone_number INTEGER,
-  date_of_birth DATE
+  dob VARCHAR,
+  login_id INTEGER
+);
+
+CREATE TABLE login (
+  id INTEGER PRIMARY KEY,
+  email VARCHAR,
+  password VARCHAR,
+  user_type VARCHAR,
+  status VARCHAR,
+  login_id INTEGER REFERENCES student(id)
 );
 
 -- Table for courses
@@ -33,7 +34,7 @@ CREATE TABLE courses (
 -- Table for gradebook
 CREATE TABLE gradebook (
   id INTEGER PRIMARY KEY,
-  studentid INTEGER REFERENCES student(student_id),
+  studentid INTEGER REFERENCES student(id),
   teacherid INTEGER,
   grades INTEGER
 );
