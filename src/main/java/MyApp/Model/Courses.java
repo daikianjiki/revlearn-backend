@@ -1,9 +1,12 @@
 package MyApp.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -28,7 +31,16 @@ public class Courses {
     private String description;
     @Column
     private Double cost;
+
+    @OneToMany(mappedBy = "courses")
+    @JsonManagedReference
+    private List<Quiz> quizzes;
+
+    @ManyToMany
+    private List<Student> courseStudents;
 }
+
+
 
 /*In satisfying user stories for students to be able to register for a class, interact within a class, get their grades for a class
 there needed to be a model for a course.

@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -32,6 +34,13 @@ public class Student {
     @JsonBackReference
     @JoinColumn(name = "login_id")
     private Login login;
+
+    @ManyToMany
+    @JoinTable(
+            name= "student_courses",
+            joinColumns = @JoinColumn (name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
+    private List<Courses> myCourses;
 
     @Override
     public String toString() {
