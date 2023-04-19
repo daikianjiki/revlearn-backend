@@ -2,6 +2,7 @@ package MyApp.Model;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.sql.Timestamp;
 
 @Entity
@@ -23,4 +24,5 @@ public class Forum {
     private String textBody;
     @Column
     private Timestamp createdAt;
+
 }
