@@ -10,6 +10,8 @@ import java.util.List;
 @Repository
 public interface QuizRepository extends JpaRepository<Quiz, Long> {
 
-    @Query("SELECT u FROM Quiz u GROUP BY u.quizName")
-    public List<Quiz> getAllQuizByCourseId(long id);
+    @Query("SELECT DISTINCT q.quizName FROM Quiz q WHERE q.courseId = ?1")
+    public List<String> findQuizNamesByCourseId(long courseId);
+
+    public List<Quiz> findByQuizName(String quizName);
 }

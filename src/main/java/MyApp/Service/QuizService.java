@@ -29,8 +29,12 @@ public class QuizService {
         return new ResponseEntity<>(this.quizRepository.save(quiz), HttpStatus.OK);
     }
 
-    public List<Quiz> getAllQuizByCourseId(long id) {
+    public List<String> getAllQuizByCourseId(long id) {
 
-        return this.quizRepository.getAllQuizByCourseId(id);
+        return this.quizRepository.findQuizNamesByCourseId(id);
+    }
+
+    public List<Quiz> getQuizByQuizName(String quizName) {
+        return this.quizRepository.findByQuizName(quizName);
     }
 }

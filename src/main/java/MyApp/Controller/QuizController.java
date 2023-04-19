@@ -30,8 +30,12 @@ public class QuizController {
         return this.quizService.createQuiz(quiz);
     }
     @GetMapping("courses/{id}/quiz")
-    public List<Quiz> getAllQuizByCourseId(@PathVariable long id) {
+    public List<String> getAllQuizByCourseId(@PathVariable long id) {
         return this.quizService.getAllQuizByCourseId(id);
+    }
+    @GetMapping("quizByName/{quizName}")
+    public List<Quiz> getQuizByQuizName(@PathVariable String quizName) {
+        return this.quizService.getQuizByQuizName(quizName);
     }
 
 }
