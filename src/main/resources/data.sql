@@ -93,3 +93,28 @@ INSERT INTO courses (educator_id, name, keywords, category, course_level, descri
 --(3, 'CSC 101 - Computer Science I', 'algorithm, programming', 'Computer Science',100, 'Problem-solving, algorithm development, computer programming, overview of computer science.', 2500)
 --(4, 'CSC 203 - Introduction to Computer Systems','architecture, assembler language', 'Computer Science', 200, 'Computer systems and architecture, assembler language programming.', 2500)
 
+INSERT INTO quiz (quiz_name, question, answer1, answer2, answer3, answer4, answer, course_id) VALUES
+('Math Quiz', 'What is the value of pi (to two decimal places)?', '3.14', '3.12', '3.16', '3.18', 'A', '1'),
+('Math Quiz', 'What is the square root of 81?', '9', '8', '7', '6', 'A','1'),
+('Math Quiz', 'What is 2 + 2?', '4', '3', '5', '6', 'A', '1'),
+('Math Quiz', 'What is the value of x in the equation 2x + 5 = 15?', '5', '10', '15', '20', 'B', '1'),
+('Math Quiz', 'What is the area of a circle with a radius of 5?', '78.5', '39.25', '31.4', '25', 'A', '1'),
+('Math Quiz', 'What is the slope of a horizontal line?', '0', '1', '-1', 'undefined', 'A', '1'),
+('Math Quiz', 'What is the perimeter of a square with sides of length 6?', '24', '18', '36', '12', 'A', '1'),
+('Math Quiz', 'What is the value of y in the equation 3y + 4 = 13?', '3', '2', '1', '4', 'C', '1'),
+('Math Quiz', 'What is the Pythagorean Theorem?', 'a^2 + b^2 = c^2', 'e = mc^2', 'F = ma', 'Force = Distance x Time', 'A', '1'),
+('Math Quiz', 'What is the value of 6! (factorial of 6)?', '720', '36', '120', '360', 'A', '1');
+
+INSERT INTO quiz (quiz_name, question, answer1, answer2, answer3, answer4, answer, course_id) VALUES
+('Algorithm Design Quiz 1', 'Which of the following is NOT a sorting algorithm?', 'A) Quicksort', 'B) Heapsort', 'C) Depth-First Search', 'D) Mergesort', 'C', '3'),
+('Algorithm Design Quiz 1', 'Which of the following data structures uses LIFO (Last In First Out) principle?', 'A) Stack', 'B) Queue', 'C) Heap', 'D) Linked List', 'A', '3'),
+('Algorithm Design Quiz 1', 'What is the worst case time complexity of the bubble sort algorithm?', 'A) O(1)', 'B) O(log n)', 'C) O(n)', 'D) O(n^2)', 'D', '3'),
+('Algorithm Design Quiz 1', 'Which of the following is NOT an example of a divide and conquer algorithm?', 'A) Merge sort', 'B) Binary search', 'C) Quick sort', 'D) Bubble sort', 'D', '3'),
+('Algorithm Design Quiz 1', 'What is the time complexity of the binary search algorithm?', 'A) O(1)', 'B) O(log n)', 'C) O(n)', 'D) O(n^2)', 'B', '3');
+
+INSERT INTO quiz (quiz_name, question, answer1, answer2, answer3, answer4, answer, course_id) VALUES
+('Algorithm Design Quiz 2', 'Which of the following is NOT a characteristic of a greedy algorithm?', 'A) It makes the locally optimal choice', 'B) It never reconsiders past decisions', 'C) It always produces the optimal solution', 'D) It may not always produce the globally optimal solution', 'C', '3'),
+('Algorithm Design Quiz 2', 'Which of the following data structures uses the FIFO (First In First Out) principle?', 'A) Stack', 'B) Queue', 'C) Heap', 'D) Linked List', 'B', '3'),
+('Algorithm Design Quiz 2', 'What is the worst case time complexity of the selection sort algorithm?', 'A) O(1)', 'B) O(log n)', 'C) O(n)', 'D) O(n^2)', 'D', '3'),
+('Algorithm Design Quiz 2', 'What is the space complexity of the merge sort algorithm?', 'A) O(1)', 'B) O(log n)', 'C) O(n)', 'D) O(n log n)', 'D', '3'),
+('Algorithm Design Quiz 2', 'Which of the following is NOT an example of a dynamic programming algorithm?', 'A) Knapsack problem', 'B) Longest common subsequence problem', 'C) Dijkstra algorithm', 'D) Fibonacci sequence', 'C', '3')
