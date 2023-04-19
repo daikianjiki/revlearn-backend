@@ -48,6 +48,14 @@ CREATE TABLE forum (
   created_at TIMESTAMP
 );
 
+CREATE TABLE course_student (
+  course_id INT NOT NULL,
+  student_id INT NOT NULL,
+  PRIMARY KEY (course_id, student_id),
+  FOREIGN KEY (course_id) REFERENCES courses(course_id),
+  FOREIGN KEY (student_id) REFERENCES student(id)
+);
+
 CREATE TABLE quiz (
   quiz_id INTEGER PRIMARY KEY AUTO_INCREMENT,
   quiz_name VARCHAR(100) NOT NULL,

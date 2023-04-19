@@ -1,5 +1,6 @@
 package MyApp.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,8 +28,4 @@ public class Quiz {
     public String answer4;
     @Column
     public String answer;
-    @Column
-    public Long courseId;
-//    @ManyToOne
-//    public Courses courses;
 }
