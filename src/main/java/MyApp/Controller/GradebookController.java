@@ -27,4 +27,9 @@ public class GradebookController {
     public List<Gradebook> getAllGradebooksByCourseId(@PathVariable int studentid) {
         return gradebookService.getAllGradebooksByStudentId(studentid);
     }
+
+    @PatchMapping("gradebook/{gradeId}")
+    public void updateGradebook(@RequestBody Gradebook gradebook) {
+        gradebookService.updateGradebook(gradebook.getGradeId(), gradebook.getGrades());
+    }
 }

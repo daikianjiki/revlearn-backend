@@ -20,4 +20,8 @@ public class GradebookService {
     public List<Gradebook> getAllGradebooksByStudentId(int courseId) {
         return gradebookRepository.findAllByStudentId(courseId);
     }
+
+    public void updateGradebook(int gradeId, int grades) {
+        gradebookRepository.updateGradebook(gradeId, grades);
+    }
 }
