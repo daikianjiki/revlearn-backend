@@ -11,9 +11,50 @@ INSERT INTO student (id, firstname, lastname, address, phone_number, dob, login_
    --(3, 'educator@example.com', 'password', 'educator', 'active');
 
 -- Insert gradebook data
-INSERT INTO gradebook (id, studentid, teacherid, grades) VALUES
-  (1, 1, 3, 80),
-  (2, 2, 3, 90);
+INSERT INTO gradebook (student_id, teacher_id, grades) VALUES
+  (1, 3, 80),
+  (2, 3, 90),
+  (1, 1, 85),
+  (1, 1, 95),
+  (1, 1, 90),
+  (1, 1, 92),
+  (1, 1, 88),
+  (1, 1, 91),
+  (1, 1, 87),
+  (1, 1, 89),
+  (1, 1, 86),
+  (1, 1, 93),
+  (2, 1, 82),
+  (2, 1, 88),
+  (2, 1, 94),
+  (2, 1, 86),
+  (2, 1, 91),
+  (2, 1, 85),
+  (2, 1, 89),
+  (2, 1, 87),
+  (2, 1, 90),
+  (2, 1, 92),
+  (1, 2, 85),
+  (1, 2, 87),
+  (1, 2, 90),
+  (1, 2, 92),
+  (1, 2, 88),
+  (1, 2, 91),
+  (1, 2, 87),
+  (1, 2, 89),
+  (1, 2, 86),
+  (1, 2, 93),
+  (2, 2, 82),
+  (2, 2, 88),
+  (2, 2, 94),
+  (2, 2, 86),
+  (2, 2, 91),
+  (2, 2, 85),
+  (2, 2, 89),
+  (2, 2, 87),
+  (2, 2, 90),
+  (2, 2, 92);
+
 
 -- Insert forum post data
 INSERT INTO forum (course_id, user_id, text_body, created_at) VALUES

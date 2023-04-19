@@ -33,9 +33,9 @@ CREATE TABLE courses (
 
 -- Table for gradebook
 CREATE TABLE gradebook (
-  id INTEGER PRIMARY KEY,
-  studentid INTEGER REFERENCES student(id),
-  teacherid INTEGER,
+  grade_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  student_id INTEGER,
+  teacher_id INTEGER,
   grades INTEGER
 );
 
