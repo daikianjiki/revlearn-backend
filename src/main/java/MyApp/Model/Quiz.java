@@ -21,8 +21,5 @@ public class Quiz {
     public String answer4;
     public String answer;
 
-    @ManyToOne
-    @JsonBackReference
-    @JoinColumn(name = "course_id")
-    private Courses courses;
+
 }
