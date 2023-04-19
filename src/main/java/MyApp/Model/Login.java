@@ -21,9 +21,9 @@ public class Login {
     @Column
     private String password;
     @Column
-    private String user_type = "Student";
+    private String user_type = "student";
     @Column
-    private String status = "Good";
+    private String status = "good";
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "login_id")

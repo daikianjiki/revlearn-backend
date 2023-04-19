@@ -1,17 +1,17 @@
 
 -- Table for student information
 CREATE TABLE student (
-  id INTEGER PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
   firstname VARCHAR,
   lastname VARCHAR,
   address VARCHAR,
-  phone_number INTEGER,
+  phone_number VARCHAR,
   dob VARCHAR,
   login_id INTEGER
 );
 
 CREATE TABLE login (
-  id INTEGER PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
   email VARCHAR,
   password VARCHAR,
   user_type VARCHAR,

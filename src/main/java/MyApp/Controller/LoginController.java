@@ -51,4 +51,13 @@ public class LoginController {
     @ResponseStatus(value = HttpStatus.UNAUTHORIZED, reason = "invalid login credentials, please try again!")
     public void handleUnauthorized(){
     }
+
+    /**
+     * 3. As a user I should be able to edit my profile and change things there
+     * PATCH localhost:9000/user/{id}
+     */
+    @PatchMapping("login/{id}")
+    public Login editAccount(@RequestBody Login login, @PathVariable long id){
+        return loginService.editAccount(login,id);
+    }
 }
