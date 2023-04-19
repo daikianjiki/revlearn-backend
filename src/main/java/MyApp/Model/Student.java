@@ -9,7 +9,6 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @EqualsAndHashCode
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Student {
@@ -18,18 +17,31 @@ public class Student {
     private Long id;
 
     @Column
-    private String firstname;
+    private String firstname = "temp";
     @Column
-    private String lastname;
+    private String lastname = "temp";
     @Column
-    private String address;
+    private String address = "temp";
     @Column
-    private String phone_number;
+    private String phone_number = "(123)-123-1234";
     @Column
-    private String dob;
+    private String dob = "00/00/0000";
 
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "loginFK")
+    @OneToOne(fetch = FetchType.EAGER)
+    @JsonBackReference
+    @JoinColumn(name = "login_id")
     private Login login;
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", address='" + address + '\'' +
+                ", phone_number='" + phone_number + '\'' +
+                ", dob='" + dob + '\'' +
+                '}';
+    }
 }

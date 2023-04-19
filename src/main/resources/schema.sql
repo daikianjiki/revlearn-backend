@@ -1,21 +1,22 @@
 
-CREATE TABLE login (
-  login_id INTEGER PRIMARY KEY,
-  email VARCHAR,
-  password VARCHAR,
-  user_type VARCHAR,
-  status VARCHAR
-);
-
 -- Table for student information
 CREATE TABLE student (
-  student_id INTEGER PRIMARY KEY,
-  login_id INTEGER REFERENCES login(login_id),
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
   firstname VARCHAR,
   lastname VARCHAR,
   address VARCHAR,
-  phone_number INTEGER,
-  date_of_birth DATE
+  phone_number VARCHAR,
+  dob VARCHAR,
+  login_id INTEGER
+);
+
+CREATE TABLE login (
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  email VARCHAR,
+  password VARCHAR,
+  user_type VARCHAR,
+  status VARCHAR,
+  login_id INTEGER REFERENCES student(id)
 );
 
 -- Table for courses
@@ -32,15 +33,15 @@ CREATE TABLE courses (
 
 -- Table for gradebook
 CREATE TABLE gradebook (
-  id INTEGER PRIMARY KEY,
-  studentid INTEGER REFERENCES student(student_id),
-  teacherid INTEGER,
+  grade_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  student_id INTEGER,
+  teacher_id INTEGER,
   grades INTEGER
 );
 
 -- Table for forum posts
 CREATE TABLE forum (
-  post_id INTEGER PRIMARY KEY,
+  post_id INTEGER PRIMARY KEY AUTO_INCREMENT,
   course_id INTEGER ,
   user_id INTEGER ,
   text_body LONGTEXT,
@@ -57,4 +58,5 @@ CREATE TABLE quiz (
   answer4 VARCHAR(255) NOT NULL,
   answer CHAR(1) NOT NULL,
   course_id INTEGER NOT NULL
+
 );
