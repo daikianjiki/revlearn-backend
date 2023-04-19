@@ -28,4 +28,6 @@ public class Quiz {
     public String answer4;
     @Column
     public String answer;
+    @Column
+    public Long courseId;
 }
