@@ -33,15 +33,15 @@ CREATE TABLE courses (
 
 -- Table for gradebook
 CREATE TABLE gradebook (
-  id INTEGER PRIMARY KEY,
-  studentid INTEGER REFERENCES student(id),
-  teacherid INTEGER,
+  grade_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  student_id INTEGER,
+  teacher_id INTEGER,
   grades INTEGER
 );
 
 -- Table for forum posts
 CREATE TABLE forum (
-  post_id INTEGER PRIMARY KEY,
+  post_id INTEGER PRIMARY KEY AUTO_INCREMENT,
   course_id INTEGER ,
   user_id INTEGER ,
   text_body LONGTEXT,
@@ -54,4 +54,17 @@ CREATE TABLE course_student (
   PRIMARY KEY (course_id, student_id),
   FOREIGN KEY (course_id) REFERENCES courses(course_id),
   FOREIGN KEY (student_id) REFERENCES student(id)
+);
+
+CREATE TABLE quiz (
+  quiz_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  quiz_name VARCHAR(100) NOT NULL,
+  question VARCHAR(255) NOT NULL,
+  answer1 VARCHAR(255) NOT NULL,
+  answer2 VARCHAR(255) NOT NULL,
+  answer3 VARCHAR(255) NOT NULL,
+  answer4 VARCHAR(255) NOT NULL,
+  answer CHAR(1) NOT NULL,
+  course_id INTEGER NOT NULL
+
 );

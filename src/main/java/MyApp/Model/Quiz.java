@@ -14,12 +14,18 @@ public class Quiz {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long quizId;
+    @Column
     public String quizName;
+    @Column
+    public String question;
+    @Column
     public String answer1;
+    @Column
     public String answer2;
+    @Column
     public String answer3;
+    @Column
     public String answer4;
+    @Column
     public String answer;
-
-
 }

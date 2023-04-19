@@ -25,6 +25,7 @@ public class ForumController {
 
     @GetMapping("forums/{course_id}")
     public List<Forum> getAllForumsByCourseId(@PathVariable int course_id) {
-        return forumService.getAllForumsByCourseId(course_id);
+        int temp = 1;
+        return forumService.getAllForumsByCourseId(temp);
     }
 }

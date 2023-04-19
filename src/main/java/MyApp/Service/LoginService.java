@@ -59,6 +59,10 @@ public class LoginService {
     public Object login(Login login) throws UnauthorizedUserException {
         Login loginOnDB = loginRepository.findByEmail(login.getEmail());
 
+        if(loginOnDB == null){
+            throw new UnauthorizedUserException();
+        }
+
         if(loginOnDB.getPassword().equals(login.getPassword())) {
             if(loginOnDB.getUser_type().equals("student")) return loginOnDB.getStudent();
         }
@@ -70,17 +74,21 @@ public class LoginService {
     }
 
 
-    public Login editAccount(Login login, long id) {
-        Login login1 = loginRepository.findById(id).get();
-        login1.setEmail(login.getEmail());
-        login1.setPassword(login.getPassword());
-        login1.setUser_type(login.getUser_type());
-        login1.setStatus(login.getStatus());
-
-
-        if(login.getStudent() != null && login1.getUser_type().equals("student")) {
-            login1.setStudent(login.getStudent());
+    public Login editLogin(Login login, long id) {
+        if(loginRepository.existsById(id) && login.getUser_type().equals("student")){
+            Login loginOnDb = loginRepository.findById(id).get();
+            login.setId(id);
+            login.setStudent(loginOnDb.getStudent());
+            loginOnDb = login;
+            return loginRepository.save(loginOnDb);
         }
-        return loginRepository.save(login1);
+        else if(loginRepository.existsById(id) && login.getUser_type().equals("educator")){
+
+        }
+        else if(loginRepository.existsById(id) && login.getUser_type().equals("admin")){
+
+        }
+
+        return null;
     }
 }
