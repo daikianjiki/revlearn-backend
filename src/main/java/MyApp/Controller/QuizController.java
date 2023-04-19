@@ -26,8 +26,16 @@ public class QuizController {
         return this.quizService.getQuizById(id);
     }
     @PostMapping("quiz")
-public ResponseEntity<?> createQuiz(@RequestBody Quiz quiz) {
+    public ResponseEntity<?> createQuiz(@RequestBody Quiz quiz) {
         return this.quizService.createQuiz(quiz);
+    }
+    @GetMapping("courses/{id}/quiz")
+    public List<String> getAllQuizByCourseId(@PathVariable long id) {
+        return this.quizService.getAllQuizByCourseId(id);
+    }
+    @GetMapping("quizByName/{quizName}")
+    public List<Quiz> getQuizByQuizName(@PathVariable String quizName) {
+        return this.quizService.getQuizByQuizName(quizName);
     }
 
 }

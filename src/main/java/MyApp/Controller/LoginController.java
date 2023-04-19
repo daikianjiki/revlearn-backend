@@ -54,10 +54,10 @@ public class LoginController {
 
     /**
      * 3. As a user I should be able to edit my profile and change things there
-     * PATCH localhost:9000/user/{id}
+     * PATCH localhost:9000/login/{id}
      */
     @PatchMapping("login/{id}")
-    public Login editAccount(@RequestBody Login login, @PathVariable long id){
-        return loginService.editAccount(login,id);
+    public Login editLogin(@RequestBody Login login, @PathVariable long id){
+        return loginService.editLogin(login,id);
     }
 }

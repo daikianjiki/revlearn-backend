@@ -34,4 +34,13 @@ public class StudentController {
     public List<Student> getAllStudent() {
         return studentService.getAllStudent();
     }
+
+    /**
+     * 2. A user should be able to change their personal details
+     * PATCH localhost:9000/student/{id}
+     */
+    @PatchMapping("student/{id}")
+    public Student editStudent(@PathVariable long id, @RequestBody Student student){
+        return studentService.editStudent(id,student);
+    }
 }

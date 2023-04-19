@@ -20,6 +20,12 @@ public class StudentService {
         this.loginRepository = loginRepository;
     }
 
+    /**
+     * Register a new student that is attached to a login
+     * @param student
+     * @param id
+     * @return
+     */
     public Student registerStudent(Student student, long id) {
         Login login = loginRepository.findById(id).get();
         login.setStudent(student);
@@ -27,7 +33,23 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
+    /**
+     * get all students currently enrolled
+     * @return
+     */
     public List<Student> getAllStudent() {
         return studentRepository.findAll();
+    }
+
+
+    public Student editStudent(long id, Student student) {
+        if(studentRepository.existsById(id)){
+            Student studentOnDb = studentRepository.findById(id).get();
+            student.setId(id);
+            student.setLogin(studentOnDb.getLogin());
+            studentOnDb = student;
+            return studentRepository.save(studentOnDb);
+        }
+        return null;
     }
 }

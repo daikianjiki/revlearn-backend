@@ -47,13 +47,24 @@ CREATE TABLE forum (
   text_body LONGTEXT,
   created_at TIMESTAMP
 );
-CREATE TABLE quizzes (
-  question_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+
+CREATE TABLE course_student (
+  course_id INT NOT NULL,
+  student_id INT NOT NULL,
+  PRIMARY KEY (course_id, student_id),
+  FOREIGN KEY (course_id) REFERENCES courses(course_id),
+  FOREIGN KEY (student_id) REFERENCES student(id)
+);
+
+CREATE TABLE quiz (
+  quiz_id INTEGER PRIMARY KEY AUTO_INCREMENT,
   quiz_name VARCHAR(100) NOT NULL,
   question VARCHAR(255) NOT NULL,
-  answer_1 VARCHAR(255) NOT NULL,
-  answer_2 VARCHAR(255) NOT NULL,
-  answer_3 VARCHAR(255) NOT NULL,
-  answer_4 VARCHAR(255) NOT NULL,
-  correct_answer CHAR(1) NOT NULL
+  answer1 VARCHAR(255) NOT NULL,
+  answer2 VARCHAR(255) NOT NULL,
+  answer3 VARCHAR(255) NOT NULL,
+  answer4 VARCHAR(255) NOT NULL,
+  answer CHAR(1) NOT NULL,
+  course_id INTEGER NOT NULL
+
 );
