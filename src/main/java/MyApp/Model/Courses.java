@@ -1,5 +1,6 @@
 package MyApp.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -33,7 +34,9 @@ public class Courses {
     @Column
     private Double cost;
 
-
+    @ManyToMany(mappedBy = "myCourses")
+    @JsonBackReference
+    private List<Student> studentsEnrolled;
 }
 
 

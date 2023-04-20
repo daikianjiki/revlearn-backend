@@ -7,6 +7,7 @@ CREATE TABLE student (
   address VARCHAR,
   phone_number VARCHAR,
   dob VARCHAR,
+  balance FLOAT,
   login_id INTEGER
 );
 
@@ -48,7 +49,7 @@ CREATE TABLE forum (
   created_at TIMESTAMP
 );
 
-CREATE TABLE course_student (
+CREATE TABLE students_courses (
   course_id INT NOT NULL,
   student_id INT NOT NULL,
   PRIMARY KEY (course_id, student_id),
@@ -68,3 +69,4 @@ CREATE TABLE quiz (
   course_id INTEGER NOT NULL
 
 );
+
