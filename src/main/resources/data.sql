@@ -5,7 +5,7 @@ INSERT INTO student (firstname, lastname, address, phone_number, dob, login_id) 
   ('Jane', 'Doe', '456 Elm St', '5555678', '1999-02-02', 2);
 
  -- Insert login data
- INSERT INTO login (email, password, user_type, status, login_id) VALUES
+ INSERT INTO login (email, password, user_type, status, student_id) VALUES
    ('john.doe@example.com', 'password', 'student', 'active', 1),
    ('jane.doe@example.com', 'password', 'student', 'active', 2);
    --(3, 'educator@example.com', 'password', 'educator', 'active');

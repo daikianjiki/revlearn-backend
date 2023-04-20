@@ -16,7 +16,7 @@ CREATE TABLE login (
   password VARCHAR,
   user_type VARCHAR,
   status VARCHAR,
-  login_id INTEGER REFERENCES student(id)
+  student_id INTEGER REFERENCES student(id)
 );
 
 -- Table for courses
