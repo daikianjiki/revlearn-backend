@@ -1,5 +1,6 @@
 package MyApp.Service;
 
+import MyApp.Exceptions.DuplicateUserException;
 import MyApp.Exceptions.UnauthorizedUserException;
 import MyApp.Model.Login;
 import MyApp.Model.Student;
@@ -26,7 +27,12 @@ public class LoginService {
      * @param login
      * @return
      */
-    public Login register(Login login) {
+    public Login register(Login login) throws DuplicateUserException {
+
+        if(loginRepository.findByEmail(login.getEmail()) != null){
+            throw new DuplicateUserException();
+        }
+
         if(login.getUser_type().equals("student")){
             Student student = new Student();
             student = studentRepository.save(student);
@@ -39,6 +45,7 @@ public class LoginService {
         else if(login.getUser_type().equals("admin")){
 
         }
+
         return loginRepository.save(login);
     }
 
