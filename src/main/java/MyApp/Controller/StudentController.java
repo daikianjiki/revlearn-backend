@@ -1,5 +1,6 @@
 package MyApp.Controller;
 
+import MyApp.Model.Courses;
 import MyApp.Model.Student;
 import MyApp.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,23 @@ public class StudentController {
     @PatchMapping("student/{id}")
     public Student editStudent(@PathVariable long id, @RequestBody Student student){
         return studentService.editStudent(id,student);
+    }
+
+    /**
+     * 3. A student should be able to enroll in a course
+     * POST localhost:9000/student/{sid}/course/{cid}
+     */
+    @PostMapping("student/{sid}/course/{cid}")
+    public Courses takeCourse(@PathVariable long sid, @PathVariable long cid) {
+        return studentService.takeCourse(sid,cid);
+    }
+
+    /**
+     * 4. A student should be able to see its courses
+     * GET localhost:9000/student/{id}/courses
+     */
+    @GetMapping("student/{id}/courses")
+    public List<Courses> getCoursesByStudent(@PathVariable long id){
+        return studentService.getCoursesByStudent(id);
     }
 }

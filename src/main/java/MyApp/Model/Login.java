@@ -26,7 +26,7 @@ public class Login {
     private String status = "good";
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "login_id")
+    @JoinColumn(name = "student_id")
     private Student student;
 
     @Override
