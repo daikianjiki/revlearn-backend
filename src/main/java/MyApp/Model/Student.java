@@ -21,11 +21,11 @@ public class Student {
     private Long id;
 
     @Column
-    private String firstname = "temp";
+    private String firstname = "User";
     @Column
-    private String lastname = "temp";
+    private String lastname = "Lastname";
     @Column
-    private String address = "temp";
+    private String address = "123 Main St";
     @Column
     private String phone_number = "(123)-123-1234";
     @Column
