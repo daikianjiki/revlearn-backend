@@ -94,16 +94,18 @@ INSERT INTO courses (educator_id, name, keywords, category, course_level, descri
 --(4, 'CSC 203 - Introduction to Computer Systems','architecture, assembler language', 'Computer Science', 200, 'Computer systems and architecture, assembler language programming.', 2500)
 
 INSERT INTO quiz (quiz_name, question, answer1, answer2, answer3, answer4, answer, course_id) VALUES
-('Math Quiz', 'What is the value of pi (to two decimal places)?', '3.14', '3.12', '3.16', '3.18', 'A', '1'),
-('Math Quiz', 'What is the square root of 81?', '9', '8', '7', '6', 'A','1'),
-('Math Quiz', 'What is 2 + 2?', '4', '3', '5', '6', 'A', '1'),
-('Math Quiz', 'What is the value of x in the equation 2x + 5 = 15?', '5', '10', '15', '20', 'B', '1'),
-('Math Quiz', 'What is the area of a circle with a radius of 5?', '78.5', '39.25', '31.4', '25', 'A', '1'),
-('Math Quiz', 'What is the slope of a horizontal line?', '0', '1', '-1', 'undefined', 'A', '1'),
-('Math Quiz', 'What is the perimeter of a square with sides of length 6?', '24', '18', '36', '12', 'A', '1'),
-('Math Quiz', 'What is the value of y in the equation 3y + 4 = 13?', '3', '2', '1', '4', 'C', '1'),
-('Math Quiz', 'What is the Pythagorean Theorem?', 'a^2 + b^2 = c^2', 'e = mc^2', 'F = ma', 'Force = Distance x Time', 'A', '1'),
-('Math Quiz', 'What is the value of 6! (factorial of 6)?', '720', '36', '120', '360', 'A', '1');
+('Introduction to Computer Science Quiz 1', 'What is a computer?', 'A) A device that performs arithmetic operations', 'B) A device that can receive, store, process, and output data', 'C) A device that can only perform logical operations', 'D) A device that can only perform calculations', 'B', '1'),
+('Introduction to Computer Science Quiz 1', 'What is a programming language?', 'A) A set of instructions that a computer can understand', 'B) A program that translates natural language into machine code', 'C) A type of computer', 'D) A set of hardware components', 'A', '1'),
+('Introduction to Computer Science Quiz 1', 'What is an algorithm?', 'A) A set of instructions for a computer program', 'B) A device that performs arithmetic operations', 'C) A program that translates natural language into machine code', 'D) A type of computer', 'A', '1'),
+('Introduction to Computer Science Quiz 1', 'What is a variable in programming?', 'A) A reserved word in a programming language', 'B) A value that can be changed during the execution of a program', 'C) A data structure used to store data in memory', 'D) A hardware component', 'B', '1'),
+('Introduction to Computer Science Quiz 1', 'What is a loop in programming?', 'A) A type of data structure', 'B) A control structure that allows repeated execution of a block of code', 'C) A reserved word in a programming language', 'D) A hardware component', 'B', '1');
+
+INSERT INTO quiz (quiz_name, question, answer1, answer2, answer3, answer4, answer, course_id) VALUES
+('Principles of Cyber Security Quiz 1', 'What is the CIA triad in Cyber Security?', 'A) Confidentiality, Integrity, Availability', 'B) Cybersecurity, Information security, Network security', 'C) Firewall, Intrusion Detection System, Intrusion Prevention System', 'D) Phishing, Malware, Ransomware', 'A', '2'),
+('Principles of Cyber Security Quiz 1', 'What is encryption?', 'A) The process of converting plaintext into ciphertext', 'B) The process of converting ciphertext into plaintext', 'C) The process of destroying data', 'D) The process of creating fake data', 'A', '2'),
+('Principles of Cyber Security Quiz 1', 'What is a firewall?', 'A) A device that detects and prevents unauthorized access to a network', 'B) A type of malware that encrypts files and demands payment for their release', 'C) A type of phishing attack that targets specific individuals', 'D) A type of software that protects against spam emails', 'A', '2'),
+('Principles of Cyber Security Quiz 1', 'What is a vulnerability in Cyber Security?', 'A) A weakness in a system that can be exploited by attackers', 'B) A type of malware that replicates itself and spreads to other computers', 'C) A type of attack that floods a network with traffic to disrupt its normal operation', 'D) A type of malware that intercepts user input and sends it to a third party', 'A', '2'),
+('Principles of Cyber Security Quiz 1', 'What is two-factor authentication?', 'A) A type of encryption that requires two keys to decrypt data', 'B) A type of firewall that uses two layers of protection', 'C) A type of access control that requires two forms of authentication', 'D) A type of intrusion detection system that detects two types of attacks', 'C', '2');
 
 INSERT INTO quiz (quiz_name, question, answer1, answer2, answer3, answer4, answer, course_id) VALUES
 ('Algorithm Design Quiz 1', 'Which of the following is NOT a sorting algorithm?', 'A) Quicksort', 'B) Heapsort', 'C) Depth-First Search', 'D) Mergesort', 'C', '3'),
@@ -117,4 +119,18 @@ INSERT INTO quiz (quiz_name, question, answer1, answer2, answer3, answer4, answe
 ('Algorithm Design Quiz 2', 'Which of the following data structures uses the FIFO (First In First Out) principle?', 'A) Stack', 'B) Queue', 'C) Heap', 'D) Linked List', 'B', '3'),
 ('Algorithm Design Quiz 2', 'What is the worst case time complexity of the selection sort algorithm?', 'A) O(1)', 'B) O(log n)', 'C) O(n)', 'D) O(n^2)', 'D', '3'),
 ('Algorithm Design Quiz 2', 'What is the space complexity of the merge sort algorithm?', 'A) O(1)', 'B) O(log n)', 'C) O(n)', 'D) O(n log n)', 'D', '3'),
-('Algorithm Design Quiz 2', 'Which of the following is NOT an example of a dynamic programming algorithm?', 'A) Knapsack problem', 'B) Longest common subsequence problem', 'C) Dijkstra algorithm', 'D) Fibonacci sequence', 'C', '3')
+('Algorithm Design Quiz 2', 'Which of the following is NOT an example of a dynamic programming algorithm?', 'A) Knapsack problem', 'B) Longest common subsequence problem', 'C) Dijkstra algorithm', 'D) Fibonacci sequence', 'C', '3');
+
+INSERT INTO quiz (quiz_name, question, answer1, answer2, answer3, answer4, answer, course_id) VALUES
+('Fundamentals of IT Quiz 1', 'What is an operating system?', 'A) A program that manages computer hardware resources', 'B) A program that helps users create documents and presentations', 'C) A program that connects computers to the internet', 'D) A program that protects against malware', 'A', '4'),
+('Fundamentals of IT Quiz 1', 'What is a file system?', 'A) The way files are named and organized on a storage device', 'B) A type of software that detects and removes malware', 'C) The way files are transmitted over a network', 'D) The way files are displayed on a computer screen', 'A', '4'),
+('Fundamentals of IT Quiz 1', 'What is a network?', 'A) A group of computers and other devices connected together', 'B) A type of software that performs a specific task', 'C) A type of computer hardware', 'D) A type of malware', 'A', '4'),
+('Fundamentals of IT Quiz 1', 'What is a protocol?', 'A) A set of rules for communication between devices', 'B) A type of computer hardware', 'C) A type of software that performs a specific task', 'D) A type of malware', 'A', '4'),
+('Fundamentals of IT Quiz 1', 'What is a database?', 'A) A collection of data organized in a specific way', 'B) A type of computer hardware', 'C) A type of software that performs a specific task', 'D) A type of malware', 'A', '4');
+
+INSERT INTO quiz (quiz_name, question, answer1, answer2, answer3, answer4, answer, course_id) VALUES
+('Fundamentals of IT Quiz 2', 'What is a CPU?', 'A) The part of a computer that displays images on a screen', 'B) The part of a computer that stores data', 'C) The part of a computer that performs calculations and controls other hardware', 'D) The part of a computer that connects to the internet', 'C', '4'),
+('Fundamentals of IT Quiz 2', 'What is RAM?', 'A) A type of computer hardware', 'B) The part of a computer that stores data', 'C) The part of a computer that performs calculations and controls other hardware', 'D) The part of a computer that connects to the internet', 'B', '4'),
+('Fundamentals of IT Quiz 2', 'What is a web browser?', 'A) A type of software that creates and edits documents', 'B) A type of software that connects to the internet', 'C) A type of computer hardware', 'D) A type of software that protects against malware', 'B', '4'),
+('Fundamentals of IT Quiz 2', 'What is cloud computing?', 'A) A type of computer hardware', 'B) A type of software that connects to the internet', 'C) A way of delivering computing resources over the internet', 'D) A type of malware', 'C', '4'),
+('Fundamentals of IT Quiz 2', 'What is a router?', 'A) A device that connects computers to the internet', 'B) A type of software that performs a specific task', 'C) A type of computer hardware', 'D) A type of malware', 'A', '4');
