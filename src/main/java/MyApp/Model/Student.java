@@ -21,21 +21,30 @@ public class Student {
     private Long id;
 
     @Column
-    private String firstname = "temp";
+    private String firstname = "User";
     @Column
-    private String lastname = "temp";
+    private String lastname = "Lastname";
     @Column
-    private String address = "temp";
+    private String address = "123 Main St";
     @Column
     private String phone_number = "(123)-123-1234";
     @Column
     private String dob = "00/00/0000";
+    @Column
+    private double balance;
 
 
     @OneToOne(fetch = FetchType.EAGER)
     @JsonBackReference
     @JoinColumn(name = "login_id")
     private Login login;
+
+    @ManyToMany
+    @JoinTable(
+            name = "students_courses",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
+    private List<Courses> myCourses;
 
     @Override
     public String toString() {
@@ -46,6 +55,8 @@ public class Student {
                 ", address='" + address + '\'' +
                 ", phone_number='" + phone_number + '\'' +
                 ", dob='" + dob + '\'' +
+                ", balance=" + balance +
+                ", myCourses=" + myCourses +
                 '}';
     }
 }
