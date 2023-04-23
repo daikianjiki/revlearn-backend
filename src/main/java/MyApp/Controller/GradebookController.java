@@ -28,8 +28,8 @@ public class GradebookController {
         return gradebookService.getAllGradebooksByStudentId(studentid);
     }
 
-    @PatchMapping("gradebook/{gradeId}")
+    @PatchMapping("gradebook")
     public void updateGradebook(@RequestBody Gradebook gradebook) {
-        gradebookService.updateGradebook(gradebook.getGradeId(), gradebook.getGrades());
+        gradebookService.updateGradebook(gradebook);
     }
 }

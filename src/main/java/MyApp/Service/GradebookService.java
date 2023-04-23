@@ -18,10 +18,10 @@ public class GradebookService {
     }
 
     public List<Gradebook> getAllGradebooksByStudentId(int courseId) {
-        return gradebookRepository.findAllByStudentId(courseId);
+        return gradebookRepository.findAllByStudentIdOrderByTeacherId(courseId);
     }
 
-    public void updateGradebook(int gradeId, int grades) {
-        gradebookRepository.updateGradebook(gradeId, grades);
+    public void updateGradebook(Gradebook gradebook) {
+        gradebookRepository.save(gradebook);
     }
 }
