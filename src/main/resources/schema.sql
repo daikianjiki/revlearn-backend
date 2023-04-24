@@ -56,10 +56,10 @@ CREATE TABLE quiz (
 -- Table for gradebook
 CREATE TABLE gradebook (
   grade_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  quiz_id VARCHAR(255),
+  quiz_name VARCHAR(255),
   student_id INTEGER,
   grades INTEGER,
-  FOREIGN KEY (quiz_id) REFERENCES quiz(quiz_id)
+  FOREIGN KEY (quiz_name) REFERENCES quiz(quiz_name)
 );
 
 -- Table for forum posts
