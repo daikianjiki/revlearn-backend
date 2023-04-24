@@ -6,6 +6,7 @@ import MyApp.Model.Login;
 import MyApp.Model.Student;
 import MyApp.Repository.LoginRepository;
 import MyApp.Repository.StudentRepository;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -91,7 +92,7 @@ public class LoginService {
             throw new UnauthorizedUserException();
         }
 
-        if(loginOnDB.getPassword().equals(login.getPassword())) {
+        if(BCrypt.checkpw(login.getPassword(),loginOnDB.getPassword())) {
             if(loginOnDB.getUser_type().equals("student")) return loginOnDB.getStudent();
         }
         else {
