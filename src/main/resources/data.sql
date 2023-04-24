@@ -6,8 +6,8 @@ INSERT INTO student (firstname, lastname, address, phone_number, dob, balance, l
 
  -- Insert login data
  INSERT INTO login (email, password, user_type, status, student_id) VALUES
-   ('john.doe@example.com', 'password', 'student', 'active', 1),
-   ('jane.doe@example.com', 'password', 'student', 'active', 2);
+   ('john.doe@example.com', '$2a$12$P8DZF/JoYWA3YTiYqXxPBew4yuiP25G74x0/Te.3oGQoQ8GcP5tLG', 'student', 'active', 1),
+   ('jane.doe@example.com', '$2a$12$P8DZF/JoYWA3YTiYqXxPBew4yuiP25G74x0/Te.3oGQoQ8GcP5tLG', 'student', 'active', 2);
    --(3, 'educator@example.com', 'password', 'educator', 'active');
 
 -- Insert course data
