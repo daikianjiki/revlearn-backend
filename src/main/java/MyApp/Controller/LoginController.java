@@ -4,6 +4,7 @@ import MyApp.Exceptions.DuplicateUserException;
 import MyApp.Exceptions.UnauthorizedUserException;
 import MyApp.Model.Login;
 import MyApp.Service.LoginService;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +27,9 @@ public class LoginController {
      */
     @PostMapping("register")
     public Login register(@RequestBody Login login) throws DuplicateUserException {
+        String hashed = BCrypt.hashpw(login.getPassword(), BCrypt.gensalt(12));
+        login.setPassword(hashed);
+
         return loginService.register(login);
     }
 
