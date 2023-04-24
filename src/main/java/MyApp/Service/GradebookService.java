@@ -18,7 +18,7 @@ public class GradebookService {
     }
 
     public List<Gradebook> getAllGradebooksByStudentId(int courseId) {
-        return gradebookRepository.findAllByStudentIdOrderByQuizId(courseId);
+        return gradebookRepository.findAllByStudentIdOrderByQuizName(courseId);
     }
 
     public void updateGradebook(Gradebook gradebook) {

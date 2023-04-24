@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface GradebookRepository extends JpaRepository<Gradebook, Long> {
 
-    List<Gradebook> findAllByStudentIdOrderByQuizId(int studentId);
+    List<Gradebook> findAllByStudentIdOrderByQuizName(int studentId);
 
 }
