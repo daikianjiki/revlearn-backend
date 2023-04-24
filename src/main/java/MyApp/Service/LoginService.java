@@ -87,6 +87,11 @@ public class LoginService {
             Login loginOnDb = loginRepository.findById(id).get();
             login.setId(id);
             login.setStudent(loginOnDb.getStudent());
+
+            //HASH THE NEW USER PASSWORD
+            String hashed = BCrypt.hashpw(login.getPassword(), BCrypt.gensalt(12));
+            login.setPassword(hashed);
+
             loginOnDb = login;
             return loginRepository.save(loginOnDb);
         }
