@@ -52,7 +52,7 @@ public class EmailSenderService {
 
     }
 
-    protected  void sendPasswordReset(Login login) throws MessagingException, UnsupportedEncodingException, jakarta.mail.MessagingException {
+    protected  void sendPasswordReset(Login login, String randomCode) throws MessagingException, UnsupportedEncodingException, jakarta.mail.MessagingException {
         String toAddress = login.getEmail();
         String fromAddress = "revlearnteam@gmail.com";
         String senderName = "RevLearn";
@@ -72,7 +72,7 @@ public class EmailSenderService {
         helper.setSubject(subject);
 
         content = content.replace("[[name]]", login.getStudent().getFirstname() + " " + login.getStudent().getLastname());
-        content = content.replace("[[password]]", login.getPassword());
+        content = content.replace("[[password]]", randomCode);
 
         helper.setText(content, true);
         mailSender.send(message);

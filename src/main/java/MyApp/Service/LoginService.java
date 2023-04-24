@@ -131,9 +131,12 @@ public class LoginService {
         }
         Random random = new Random();
         String randomCode = String.valueOf(random.nextInt(9999999));
-        accountExists.setPassword(randomCode);
 
-        emailSenderService.sendPasswordReset(accountExists);
+        String hashed = BCrypt.hashpw(randomCode, BCrypt.gensalt(12));
+
+        accountExists.setPassword(hashed);
+
+        emailSenderService.sendPasswordReset(accountExists,randomCode);
         loginRepository.save(accountExists);
     }
 
