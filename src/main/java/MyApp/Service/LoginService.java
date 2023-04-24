@@ -8,36 +8,57 @@ import MyApp.Repository.LoginRepository;
 import MyApp.Repository.StudentRepository;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class LoginService {
     LoginRepository loginRepository;
     StudentRepository studentRepository;
 
+    EmailSenderService emailSenderService;
+
+    PasswordEncoder passwordEncoder;
+
     @Autowired
-    public LoginService(LoginRepository loginRepository, StudentRepository studentRepository) {
+    public LoginService(LoginRepository loginRepository, StudentRepository studentRepository, EmailSenderService emailSenderService) {
         this.loginRepository = loginRepository;
         this.studentRepository = studentRepository;
+        this.emailSenderService = emailSenderService;
+        this.passwordEncoder = new BCryptPasswordEncoder();
     }
+
 
     /**
      * register a new user
      * @param login
      * @return
      */
-    public Login register(Login login) throws DuplicateUserException {
+    public Login register(Login login) throws DuplicateUserException, MessagingException, jakarta.mail.MessagingException, UnsupportedEncodingException {
 
         if(loginRepository.findByEmail(login.getEmail()) != null){
             throw new DuplicateUserException();
         }
 
         if(login.getUser_type().equals("student")){
+            Random random = new Random();
+            String randomCode = String.valueOf(random.nextInt(9999999));
+            login.setPassword(randomCode);
+
             Student student = new Student();
             student = studentRepository.save(student);
             login.setStudent(student);
+
+            emailSenderService.sendVerificationEmail(login);
+
+
             return loginRepository.save(login);
         }
         else if(login.getUser_type().equals("educator")){
@@ -104,4 +125,20 @@ public class LoginService {
 
         return null;
     }
+
+
+    public void passwordReset(Login login) throws MessagingException, jakarta.mail.MessagingException, UnsupportedEncodingException {
+        Login accountExists = loginRepository.findByEmail(login.getEmail());
+
+        if(accountExists == null){
+            throw new UsernameNotFoundException("User with " + login.getEmail()+ " not found");
+        }
+        Random random = new Random();
+        String randomCode = String.valueOf(random.nextInt(9999999));
+        accountExists.setPassword(randomCode);
+
+        emailSenderService.sendPasswordReset(accountExists);
+        loginRepository.save(accountExists);
+    }
+
 }

@@ -21,15 +21,15 @@ public class Student {
     private Long id;
 
     @Column
-    private String firstname = "temp";
+    private String firstname = "";
     @Column
-    private String lastname = "temp";
+    private String lastname = "";
     @Column
-    private String address = "temp";
+    private String address = "";
     @Column
-    private String phone_number = "(123)-123-1234";
+    private String phone_number = "";
     @Column
-    private String dob = "00/00/0000";
+    private String dob = "";
     @Column
     private double balance;
 

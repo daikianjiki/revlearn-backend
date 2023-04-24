@@ -17,7 +17,7 @@ public class Gradebook {
     @Column
     private int studentId;
     @Column
-    private int teacherId;
+    private int quizId;
     @Column
     private int grades;
 }

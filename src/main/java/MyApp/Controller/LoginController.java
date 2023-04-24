@@ -7,11 +7,14 @@ import MyApp.Service.LoginService;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:3000"}, allowCredentials = "true")
+@CrossOrigin(origins = {"*"})
 @RestController
 public class LoginController {
     LoginService loginService;
@@ -26,7 +29,7 @@ public class LoginController {
      * POST localhost:9000/register
      */
     @PostMapping("register")
-    public Login register(@RequestBody Login login) throws DuplicateUserException {
+    public Login register(@RequestBody Login login) throws DuplicateUserException, MessagingException, jakarta.mail.MessagingException, UnsupportedEncodingException {
         String hashed = BCrypt.hashpw(login.getPassword(), BCrypt.gensalt(12));
         login.setPassword(hashed);
 
@@ -69,5 +72,17 @@ public class LoginController {
     @PatchMapping("login/{id}")
     public Login editLogin(@RequestBody Login login, @PathVariable long id){
         return loginService.editLogin(login,id);
+    }
+
+
+    @PostMapping("password")
+    public ResponseEntity<String> passwordReset(@RequestBody Login login) throws MessagingException, UnsupportedEncodingException {
+
+        try {
+            loginService.passwordReset(login);
+        } catch (jakarta.mail.MessagingException | MessagingException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 }
