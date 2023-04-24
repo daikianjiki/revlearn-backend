@@ -48,10 +48,6 @@ public class LoginService {
         }
 
         if(login.getUser_type().equals("student")){
-            Random random = new Random();
-            String randomCode = String.valueOf(random.nextInt(9999999));
-            login.setPassword(randomCode);
-
             Student student = new Student();
             student = studentRepository.save(student);
             login.setStudent(student);
@@ -108,6 +104,11 @@ public class LoginService {
             Login loginOnDb = loginRepository.findById(id).get();
             login.setId(id);
             login.setStudent(loginOnDb.getStudent());
+
+            //HASH THE NEW USER PASSWORD
+            String hashed = BCrypt.hashpw(login.getPassword(), BCrypt.gensalt(12));
+            login.setPassword(hashed);
+
             loginOnDb = login;
             return loginRepository.save(loginOnDb);
         }
