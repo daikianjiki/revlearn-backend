@@ -7,7 +7,6 @@ import MyApp.Model.Student;
 import MyApp.Repository.LoginRepository;
 import MyApp.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.event.EventListener;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
