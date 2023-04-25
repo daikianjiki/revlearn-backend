@@ -78,11 +78,22 @@ public class StudentService {
         return course;
     }
 
+    /**
+     * Gets the courses a particular student is enrolled in using student id
+     * @param id
+     * @return
+     */
     public List<Courses> getCoursesByStudent(long id) {
         Student student = studentRepository.findById(id).get();
         return student.getMyCourses();
     }
 
+    /**
+     * drops a course from a students courses
+     * @param sid
+     * @param cid
+     * @return
+     */
     public boolean dropCourse(long sid, long cid) {
         Student student = studentRepository.findById(sid).get();
         Courses course = courseRepository.findById(cid).get();
@@ -97,5 +108,16 @@ public class StudentService {
             return false;
         }
 
+    }
+
+    /**
+     * pays off a students balance if the transaction succeeds
+     * @param id
+     * @return
+     */
+    public Student payBalance(long id) {
+        Student student = studentRepository.findById(id).get();
+        student.setBalance(0.0);
+        return studentRepository.save(student);
     }
 }
