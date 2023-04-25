@@ -89,6 +89,7 @@ public class StudentService {
 
         if(student.getMyCourses().contains(course)){
             student.getMyCourses().remove(course);
+            student.setBalance(student.getBalance() - course.getCost());
             studentRepository.save(student);
             return true;
         }
